@@ -1,0 +1,29 @@
+import java.util.stream.*;
+class Main {
+    public static void main(String[] args) {
+        
+        int number=-1234500;
+        boolean isNegative = number < 0;
+        String numStr = String.valueOf(Math.abs(number));
+       String reversed= String.valueOf(numStr).chars()
+            .mapToObj(ch->String.valueOf((char)ch))
+              .reduce("",(a,b)->b+a);
+              
+              
+       /* String reversed= new StringBuilder(String.valueOf(numStr)).reverse().toString();  */
+         
+          
+       /*   String reversed=String.valueOf(number).chars()
+                  .sorted()
+                  .mapToObj(ch->String.valueOf((char)ch))
+                  .collect(Collectors.joining());
+        */
+
+
+       if (isNegative)
+           reversed = "-"+reversed;
+           System.out.println(reversed);
+              
+              
+        }
+}
